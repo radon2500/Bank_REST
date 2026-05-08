@@ -18,5 +18,26 @@ services:
       timeout: 5s
       retries: 5
 
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bank-rest-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/bank_db
+      DB_USER: bank_user
+      DB_PASSWORD: bank_password
+      JWT_SECRET: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+      CARD_CRYPTO_SECRET: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+      SEED_ADMIN_PASSWORD: admin123
+      SEED_USER_PASSWORD: user123
+      JWT_EXPIRATION_MS: 3600000
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
 volumes:
   bank-db-data:
