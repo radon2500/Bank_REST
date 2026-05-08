@@ -49,6 +49,35 @@ class TransferServiceTest {
                 () -> transferService.transfer(1L, 2L, new BigDecimal("30.00"), "user"));
     }
 
+    @Test
+    void transferFailsForNonPositiveAmount() {
+        assertThrows(BusinessException.class,
+                () -> transferService.transfer(1L, 2L, BigDecimal.ZERO, "user"));
+    }
+
+    @Test
+    void transferFailsWhenCardNotActive() {
+        Card from = card("user", "100.00");
+        Card to = card("user", "20.00");
+        from.setStatus(CardStatus.BLOCKED);
+        when(cardService.getCard(1L)).thenReturn(from);
+        when(cardService.getCard(2L)).thenReturn(to);
+
+        assertThrows(BusinessException.class,
+                () -> transferService.transfer(1L, 2L, new BigDecimal("30.00"), "user"));
+    }
+
+    @Test
+    void transferFailsForInsufficientFunds() {
+        Card from = card("user", "10.00");
+        Card to = card("user", "20.00");
+        when(cardService.getCard(1L)).thenReturn(from);
+        when(cardService.getCard(2L)).thenReturn(to);
+
+        assertThrows(BusinessException.class,
+                () -> transferService.transfer(1L, 2L, new BigDecimal("30.00"), "user"));
+    }
+
     private Card card(String username, String balance) {
         User user = new User();
         user.setUsername(username);
