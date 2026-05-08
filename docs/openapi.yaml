@@ -1,1 +1,33 @@
-# Здесь будет OpenAPI описание всех доступных эндпоинтов и моделей данных.
+openapi: 3.0.3
+info:
+  title: Bank REST API
+  version: 1.0.0
+paths:
+  /api/auth/login:
+    post:
+      summary: Login and get JWT token
+  /api/cards:
+    get:
+      summary: Get current user cards with pagination/search
+  /api/cards/{id}/request-block:
+    patch:
+      summary: Request card block
+  /api/transfers:
+    post:
+      summary: Transfer funds between own cards
+  /api/admin/cards:
+    get:
+      summary: Admin: get all cards
+    post:
+      summary: Admin: create card
+  /api/admin/cards/{id}/status:
+    patch:
+      summary: Admin: update card status
+  /api/admin/cards/{id}:
+    delete:
+      summary: Admin: delete card
+  /api/admin/users:
+    get:
+      summary: Admin: list users
+    post:
+      summary: Admin: create user

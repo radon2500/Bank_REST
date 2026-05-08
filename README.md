@@ -103,3 +103,16 @@
 <p>
 Весь код и изменения принимаются только через git-репозиторий с открытым доступом к проекту. Отправка файлов в любом виде не принимается.
   </p>
+
+<h2>▶️ Запуск проекта</h2>
+<ol>
+  <li>Поднять PostgreSQL: <code>docker compose up -d</code></li>
+  <li>Запустить Spring Boot приложение (Maven/IDE).</li>
+  <li>Swagger UI: <code>http://localhost:8080/swagger-ui.html</code></li>
+</ol>
+
+<h3>Тестовые пользователи</h3>
+<ul>
+  <li><code>admin / admin123</code></li>
+  <li><code>user / user123</code></li>
+</ul>
