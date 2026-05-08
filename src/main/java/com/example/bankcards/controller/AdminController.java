@@ -43,6 +43,11 @@ public class AdminController {
         return cardService.allCards(search, pageable);
     }
 
+    @GetMapping("/cards/{id}")
+    public CardDtos.CardResponse cardById(@PathVariable @NonNull Long id) {
+        return cardService.cardById(id);
+    }
+
     @PostMapping("/users")
     public UserDtos.UserResponse createUser(@RequestBody @Valid UserDtos.CreateUserRequest request) {
         return userService.create(request);

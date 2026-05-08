@@ -58,6 +58,20 @@ public class CardService {
     }
 
     @Transactional(readOnly = true)
+    public CardDtos.CardResponse ownCardById(@NonNull Long cardId, String username) {
+        Card card = getCard(cardId);
+        if (!card.getOwner().getUsername().equals(username)) {
+            throw new BusinessException("Only owner can view this card");
+        }
+        return toResponse(card);
+    }
+
+    @Transactional(readOnly = true)
+    public CardDtos.CardResponse cardById(@NonNull Long cardId) {
+        return toResponse(getCard(cardId));
+    }
+
+    @Transactional(readOnly = true)
     public Page<CardDtos.CardResponse> allCards(String search, Pageable pageable) {
         String value = search == null ? "" : search;
         return cardRepository.findByNumberLast4Containing(value, pageable).map(this::toResponse);

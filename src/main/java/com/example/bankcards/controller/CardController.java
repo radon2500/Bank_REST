@@ -27,6 +27,11 @@ public class CardController {
         return cardService.ownCards(userService.findByUsername(authentication.getName()), search, pageable);
     }
 
+    @GetMapping("/{id}")
+    public CardDtos.CardResponse myCard(@PathVariable @NonNull Long id, Authentication authentication) {
+        return cardService.ownCardById(id, authentication.getName());
+    }
+
     @PatchMapping("/{id}/request-block")
     public CardDtos.CardResponse requestBlock(@PathVariable @NonNull Long id, Authentication authentication) {
         return cardService.requestBlock(id, authentication.getName());
