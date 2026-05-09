@@ -131,6 +131,12 @@
   </li>
 </ol>
 
+<h4>Быстрый запуск для Windows PowerShell</h4>
+<p>
+  Используйте скрипт <code>run-local.ps1</code>, который выставляет <code>JAVA_HOME</code> и запускает приложение:
+  <code>.\run-local.ps1</code>
+</p>
+
 <h3>Тестовые пользователи</h3>
 <ul>
   <li><code>admin / admin123</code></li>
