@@ -111,6 +111,17 @@
   <li>Swagger UI: <code>http://localhost:8080/swagger-ui.html</code></li>
 </ol>
 
+<h3>Запуск без Docker (локальный PostgreSQL)</h3>
+<ol>
+  <li>Убедиться, что локальный PostgreSQL запущен на <code>localhost:5432</code>.</li>
+  <li>Создать БД и пользователя: <code>bank_db / bank_user / bank_password</code>.</li>
+  <li>Запустить приложение с локальным профилем:
+    <code>mvn spring-boot:run -Dspring-boot.run.profiles=local</code>
+    (или <code>.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=local</code> на Windows).
+  </li>
+  <li>Swagger UI: <code>http://localhost:8080/swagger-ui.html</code></li>
+</ol>
+
 <h3>Тестовые пользователи</h3>
 <ul>
   <li><code>admin / admin123</code></li>
