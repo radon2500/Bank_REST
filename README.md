@@ -122,6 +122,15 @@
   <li>Swagger UI: <code>http://localhost:8080/swagger-ui.html</code></li>
 </ol>
 
+<h3>Запуск приложения локально с PostgreSQL из Docker</h3>
+<ol>
+  <li>Поднять только БД: <code>docker compose up -d postgres</code>.</li>
+  <li>PostgreSQL из Docker пробрасывается на <code>127.0.0.1:5433</code> (чтобы не конфликтовать с локальным PostgreSQL на 5432).</li>
+  <li>Запустить приложение с профилем <code>local</code>:
+    <code>.\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=local</code>
+  </li>
+</ol>
+
 <h3>Тестовые пользователи</h3>
 <ul>
   <li><code>admin / admin123</code></li>

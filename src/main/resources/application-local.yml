@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/bank_db
+    url: jdbc:postgresql://127.0.0.1:5433/bank_db
     username: bank_user
     password: bank_password
     driver-class-name: org.postgresql.Driver
