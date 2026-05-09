@@ -1,6 +1,0 @@
-com\example\bankcards\service\CardServiceTest.class
-com\example\bankcards\service\TransferServiceTest.class
-com\example\bankcards\exception\GlobalExceptionHandlerTest$TestController.class
-com\example\bankcards\service\UserServiceTest.class
-com\example\bankcards\exception\GlobalExceptionHandlerTest$ValidationRequest.class
-com\example\bankcards\exception\GlobalExceptionHandlerTest.class
